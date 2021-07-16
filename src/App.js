@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-
+import ReactDOM from 'react-dom';
+import ReactHlsPlayer from 'react-hls-player';
 function App() {
-  return (
+  function preview() {
+        
+    ReactDOM.render(
+
+        <ReactHlsPlayer
+            src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
+            autoPlay={false}
+            controls={true}
+            width="100%"
+            height="auto"
+        />,
+
+        document.getElementById('root')
+    );
+}
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button  onClick={() => preview()}>
+            preview
+        </button>
     </div>
-  );
+)
 }
 
 export default App;
